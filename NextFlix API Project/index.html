@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Barlow:300,800i&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/styles.css">
+  <title>NextFlix</title>
+</head>
+
+<body>
+  <main class="curtain">
+    <div class="curtain__wrapper">
+      <label for="curtain_checkbox" class="sr-only">Click here for a new movie!</label>
+      <input class="curtain__checkbox" type="checkbox" checked id="curtain_checkbox">
+
+      <div class="curtain__panel curtain__panel--left">
+        <img src="./assets/left-curtain.png" alt="">
+      </div>
+
+      <div class="curtain__header">
+        <div class="curtain__header--content">
+          <h1>&#127909; NextFlix &#127909;</h1>
+        </div>
+      </div>
+
+      <section class="introduction">
+        <h2>What should we watch?</h2>
+      </section>
+
+
+      <section class="curtain__content">
+        <h2 class="movieTitle"></h2>
+        <div class="resultsWrapper">
+          <img src="" alt="" class="poster">
+          <div class="resultsText">
+            <p class="moviePlot"></p>
+            <h3>Try Again?</h3>
+          </div>
+        </div>
+
+      </section>
+
+      <div class="curtain__panel curtain__panel--right">
+        <img src="./assets/right-curtain.png" alt="">
+      </div>
+
+    </div>
+    <!--./curtain__wrapper-->
+  </main>
+  <!--./curtain-->
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="NextFlix.js"></script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,300 @@
+article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary{display:block;}audio,canvas,video{display:inline-block;}audio:not([controls]){display:none;height:0;}[hidden]{display:none;}html{font-family:sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;}a:focus{outline:thin dotted;}a:active,a:hover{outline:0;}h1{font-size:2em;}abbr[title]{border-bottom:1px dotted;}b,strong{font-weight:700;}dfn{font-style:italic;}mark{background:#ff0;color:#000;}code,kbd,pre,samp{font-family:monospace, serif;font-size:1em;}pre{white-space:pre-wrap;word-wrap:break-word;}q{quotes:01C 01D 018 019;}small{font-size:80%;}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline;}sup{top:-.5em;}sub{bottom:-.25em;}img{border:0;}svg:not(:root){overflow:hidden;}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em;}button,input,select,textarea{font-family:inherit;font-size:100%;margin:0;}button,input{line-height:normal;}button,html input[type=button],/* 1 */input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer;}button[disabled],input[disabled]{cursor:default;}input[type=checkbox],input[type=radio]{box-sizing:border-box;padding:0;}input[type=search]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box;}input[type=search]::-webkit-search-cancel-button,input[type=search]::-webkit-search-decoration{-webkit-appearance:none;}textarea{overflow:auto;vertical-align:top;}table{border-collapse:collapse;border-spacing:0;}body,figure{margin:0;}legend,button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0;}
+
+html {-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;}
+
+*, *:before, *:after {box-sizing: inherit;}
+
+html {
+  font-size: 62.5%
+}
+
+body {
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.wrapper {
+  max-width: 1000px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+img {
+  height: 100%;
+  display: block;
+}
+
+.randomize {
+  position: absolute;
+  z-index: 150;
+  top: 0;
+  right: 0;
+}
+
+.curtain {
+  margin: 0 auto;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-image: linear-gradient(to bottom, rgba(3, 3, 3, 0.77), rgba(52, 52, 52, 0)),url(../assets/bg-curtain.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.curtain__wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.curtain__wrapper input[type=checkbox] {
+  position: absolute;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  opacity: 0;
+  top: 0;
+  left: 0;
+}
+
+.curtain__wrapper input[type=checkbox]:checked ~ div.curtain__panel--left,
+.curtain__wrapper input[type=checkbox]:checked ~ div.curtain__panel--right {
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+}
+
+input[type=checkbox]:checked ~ .introduction {
+  bottom: 0;
+}
+
+input[type=checkbox]:checked ~ .curtain__header {
+  top: 250px;
+}
+
+input[type=checkbox]:checked ~ .curtain__content .movieTitle,
+input[type=checkbox]:checked ~ .curtain__content .movieYear,
+input[type=checkbox]:checked ~ .curtain__content .resultsWrapper {
+  opacity: 0;
+}
+
+.curtain__panel {
+  display: flex;
+  align-items: center;
+  background: linear-gradient(to bottom, rgba(3, 3, 3, 0.77), rgba(52, 52, 52, 0)),url(../assets/bg-curtain.jpg);
+  color: #fff;
+  float: left;
+  position: relative;
+  width: 50%;
+  height: 100vh;
+  transition: all 2s ease-out;
+  z-index: 2;
+}
+
+.curtain__panel--left {
+  justify-content: flex-start;
+  -webkit-transform: translateX(-100%);
+  transform: translateX(-100%);
+}
+
+.curtain__panel--right {
+  justify-content: flex-end;
+  -webkit-transform: translateX(100%);
+  transform: translateX(100%);
+}
+
+.curtain__header {
+  position: absolute;
+  z-index: 3;
+  background-color: #191919;
+  border-radius: 24px;
+  box-shadow: 2px 1px 7px 0 #ffd400;
+  border: solid 6px #ffd400;
+  top: -350px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: 2s;
+}
+
+.curtain__header--content {
+  position: relative;
+}
+
+
+.curtain__header h1 {
+  text-shadow: 0 -1px 4px #fed518, 0 2px 4px rgba(0, 0, 0, 0.75);
+  font-family: Barlow;
+  font-size: 48px;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+  color: #fff2b6;
+  margin: 0;
+  padding: 38px 50px;
+}
+
+.introduction {
+  position: absolute;
+  z-index: 3;
+  height: 55vh;
+  bottom: -36vh;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: 2s;
+}
+
+.introduction h2 {
+  position: absolute;
+  bottom: 14vh;
+  left: 50%;
+  transform: translateX(-53%);
+  box-shadow: 1px 1px 3px 0 #fff2b6;
+  border: 5px solid #ffd400;
+  background: black;
+  text-shadow: 1px 1px 1px rgba(66, 49, 49, 0.5);
+  font-family: Barlow;
+  font-size: 20px;
+  border-radius: 35px;
+  font-weight: 800;
+  font-style: italic;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 1.03px;
+  text-align: center;
+  padding: 15px 20px 15px 23px;
+  color: #ffe500;
+  width: 400px;
+  cursor: pointer;
+}
+
+.curtain__content {
+  color: #fff;
+  padding: 1rem 0;
+  position: absolute;
+  text-align: center;
+  padding-top: 70px;
+  z-index: 1;
+  width: 100%;
+}
+
+.curtain__content .movieTitle {
+  background-color: #191919;
+  border-radius: 24px;
+  box-shadow: 2px 1px 7px 0 #ffd400;
+  border: solid 6px #ffd400;
+  display: inline-block;
+  text-shadow: 0 -1px 4px #fed518, 0 2px 4px rgba(0, 0, 0, 0.75);
+  font-family: Barlow;
+  font-size: 30px;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+  color: #fff2b6;
+  margin: 0;
+  padding: 20px 40px;
+  opacity: 1;
+  transition: 2s;
+}
+
+.curtain__content .movieYear {
+  text-shadow: 0 -1px 4px #fed518, 0 2px 4px rgba(0, 0, 0, 0.75);
+  font-family: Barlow;
+  font-size: 23px;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+  color: #f1d868;
+  margin-bottom: 0;
+  opacity: 1;
+  transition: 2s;
+}
+
+.curtain__content h3 {
+  box-shadow: 1px 1px 3px 0 #fff2b6;
+  
+  border: 5px solid #ffd400;
+  background: black;
+  text-shadow: 1px 1px 1px rgba(66, 49, 49, 0.5);
+  font-family: Barlow;
+  font-size: 20px;
+  border-radius: 35px;
+  font-weight: 800;
+  font-style: italic;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 1.03px;
+  text-align: center;
+  padding: 15px 20px 15px 23px;
+  color: #ffe500;
+  width: 200px;
+  cursor: pointer;
+}
+.resultsWrapper {
+  display: flex;
+  align-items: center;
+  width: 70%;
+  position: relative;
+  font-family: Barlow;
+  font-size: 28px;
+  font-weight: 800;
+  font-style: italic;
+  line-height: 1.43;
+  letter-spacing: 1.44px;
+  text-align: center;
+  color: #ffffff;
+  margin: 20px auto 0;
+  border-radius: 24px;
+  box-shadow: 2px 1px 7px 0 #ffd400;
+  border: solid 2px #ffd400;
+  background: rgba(0, 0, 0, 0.5);
+  /* display: inline-block; */
+  padding: 20px;
+  opacity: 1;
+  transition: 2s;
+}
+
+.resultsText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* p tag with moviePlot */
+.moviePlot {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  white-space: pre-wrap;
+  width: 75%;
+  margin: 0 auto;
+  align-items: center;
+  padding: 0 25px;
+}
+
+@media (max-width: 620px) {
+  .curtain__wrapper input[type=checkbox]:checked ~ div.curtain__panel--left,
+  .curtain__wrapper input[type=checkbox]:checked ~ div.curtain__panel--right {
+      opacity: 1;
+  }
+
+  .curtain__panel--right,
+  .curtain__panel--left {
+    opacity: 0;
+  }
+}
+
+@media (max-height: 700px) {
+  .introduction {
+    bottom: -60vh;
+    height: 45vh;
+  }
+
+  .introduction h2 {
+    bottom: 30px;
+  }
+}

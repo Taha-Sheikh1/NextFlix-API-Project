@@ -1,0 +1,2 @@
+This was JavaScript application that uses two separate APIs that allow us to pick out a random popular movie from the past to check out.
+Both of these APIs required an API key which i took from respective developer portals: Retro Rewind, OMDb.
